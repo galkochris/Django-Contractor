@@ -36,6 +36,9 @@ Pokemon: Module elements of inputs, allowing users to create their own pokemon e
 *known issues: Admin superusers cannot be created due to a currently unknown settings issue; 
 
 
+**Final submission before due date is around 2:30pm, I will be returning to work on this more, even if it does not count
+towards my grade, over the rest of the weekend. I will update here as there is no submission form.
+
 
 --------------------------------------------------
 
