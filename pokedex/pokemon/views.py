@@ -23,7 +23,7 @@ class PokemonDetailView(DetailView):
     model = Pokemon
 
     def get(self, request, slug):
-        """ Returns a specific wiki page by slug. """
+        """ Returns a specific pokemon page by slug. """
         pokemons = self.get_queryset().get(slug__iexact=slug)
         return render(request, 'page.html', {
           'pokemon': pokemons

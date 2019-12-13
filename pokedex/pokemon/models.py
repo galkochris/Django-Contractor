@@ -32,4 +32,4 @@ class Pokemon(models.Model):
             self.slug = slugify(self.title, allow_unicode=True)
 
         # Call save on the superclass.
-        return super(Page, self).save(*args, **kwargs)
+        return super(Pokemon, self).save(*args, **kwargs)

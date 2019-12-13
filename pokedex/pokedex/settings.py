@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-# wiki app settings
+# pokemon app settings
 POKEMON_POKEMON_ENTRY_MAX_LENGTH = 600
 
 
