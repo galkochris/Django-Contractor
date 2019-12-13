@@ -25,7 +25,7 @@ SECRET_KEY = 'r+bxpb7^7s40y7r=4k4k0dlrm$03frabd5(9uu8w4!%_f2mdf)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'galkopokedex.herokuapp.com']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'pokemon',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,9 @@ ROOT_URLCONF = 'pokedex.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -118,3 +123,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# wiki app settings
+POKEMON_POKEMON_ENTRY_MAX_LENGTH = 600
+
+
+# Where to redirect during authentication
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+DEFAULT_LOGOUT_URL = '/'
+
+
+# Required for Heroku
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+# PROTIP:
+# Need to override settings? Create a local_settings.py file
+# in this directory, and add settings there.
+try:
+    from pokedex.local_settings import *
+except ImportError:
+    pass
